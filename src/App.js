@@ -1,5 +1,5 @@
 import './App.css';
-import React,{useState,} from 'react';
+import React, { useState, } from 'react';
 import './Example'
 import Example from './Example';
 import Header from './Header';
@@ -12,32 +12,32 @@ import CardComponent from './CardComponent'
 
 function App() {
 
-// const[cards,setCardes]=useState(cardsData)
+  // const[cards,setCardes]=useState(cardsData)
 
-// function displayView(viewr){
-//   setCardes(
-//     cards.map(card =>{
-//       if(card.id===viewr){
-//         return{
-//           ...card,
-//           view:card.viewes+1,
-//           lastupdate:new Date()
-//         }
-//       }
-//     })
-//   )
-// }
+  // function displayView(viewr){
+  //   setCardes(
+  //     cards.map(card =>{
+  //       if(card.id===viewr){
+  //         return{
+  //           ...card,
+  //           view:card.viewes+1,
+  //           lastupdate:new Date()
+  //         }
+  //       }
+  //     })
+  //   )
+  // }
   return (
-// cards.map(card =><CardComponent {...card} key={card.id} onView={displayView}/>)
+    // cards.map(card =><CardComponent {...card} key={card.id} onView={displayView}/>)
 
     <Router>
       <div className="container-fluid">
-        <Example/>
+        <Example />
         <Header />
         <Switch>
-        cards.map(card =><Route path="/" exact component={CookBook}/>)
-        <Route path="/registration" component={Registration}/>
-        <Route path="/newrecipe" component={NewRecipe}/>
+          <Route path="/" exact component={CookBook} />
+          <Route path="/registration" component={Registration} />
+          <Route path="/newrecipe" component={NewRecipe} />
         </Switch>
       </div>
     </Router>
