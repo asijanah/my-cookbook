@@ -8,36 +8,27 @@ import Registration from './Registration';
 import NewRecipe from './NewRecipe';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import cardsData from './cardsData'
-import CardComponent from './CardComponent'
+import SearchComponent from './SearchComponent'
+import LoginForm from './LoginForm'
+import RecipePage from './RecipePage'
 
 function App() {
 
-  // const[cards,setCardes]=useState(cardsData)
-
-  // function displayView(viewr){
-  //   setCardes(
-  //     cards.map(card =>{
-  //       if(card.id===viewr){
-  //         return{
-  //           ...card,
-  //           view:card.viewes+1,
-  //           lastupdate:new Date()
-  //         }
-  //       }
-  //     })
-  //   )
-  // }
   return (
-    // cards.map(card =><CardComponent {...card} key={card.id} onView={displayView}/>)
 
     <Router>
       <div className="container-fluid">
-        <Example />
+        {/* <Example /> */}
         <Header />
+        {/* <SearchComponent/> */}
+        <RecipePage />
         <Switch>
+          {/* <div className="row">
           <Route path="/" exact component={CookBook} />
+          </div>
           <Route path="/registration" component={Registration} />
-          <Route path="/newrecipe" component={NewRecipe} />
+          <Route path="/newrecipe" component={NewRecipe} /> */}
+          {/* <LoginForm path="login" component={LoginForm} /> */}
         </Switch>
       </div>
     </Router>
