@@ -25,11 +25,6 @@ function Header() {
                                     <p className="nav-link">New Recipe</p>
                                 </li>
                             </Link>
-
-                        </ul>
-                    </div>
-                    <div className="collapse navbar-collapse row  " id="navbarNav">
-                        <ul className="navbar-nav ml-auto">
                             <Link to='/login'>
                                 <li className="nav-item active ">
                                     <a className="nav-link " href="" tabIndex="-1" aria-disabled="true">Log In</a>
