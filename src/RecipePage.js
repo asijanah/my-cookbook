@@ -1,17 +1,22 @@
-import React from 'react';
+import React from 'react';import { Link, useParams } from 'react-router-dom';
+
+import cardsData from './cardsData';
 
 function RecipePage() {
 
-
+    const params = useParams();
+    console.log(params);
+    const recipe = cardsData.find(item => item.id == params.id);
+    console.log(recipe);
 
     return (
         <div id="jambo" className="container mt-3">
             <div className="jumbotron">
-                <h1>Fluid jumbotron</h1>
+                <h1>{recipe.name}</h1>
                 <div className="row">
                     <div className="col-md-7">
                         <div className="row">
-                            <p>Source:</p>
+                            <p>Source:<Link>{recipe.source}</Link></p>
                         </div>
                         <div className="row">
                             <p>Ingredients:</p>
@@ -26,7 +31,7 @@ function RecipePage() {
 
                     </div>
                     <div className="col-md-5">
-                        <img src="pizza.jpg"></img>
+                        <img src={recipe.img}/>
                     </div>
                 </div>
 
