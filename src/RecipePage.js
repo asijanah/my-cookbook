@@ -11,24 +11,24 @@ function RecipePage() {
 
     return (
         <div id="jambo" className="container mt-3">
-            <div className="jumbotron">
-                <h1>{recipe.name}</h1>
+            <div className="jumbotron bg-light">
+                <h1 className="pb-4" >{recipe.name}</h1>
                 <div className="row">
                     <div className="col-md-7">
-                        <div className="row">
+                        
+                        <div className="row mb-1">
                             <p>Source:<Link>{recipe.source}</Link></p>
                         </div>
-                        <div className="row">
+                        <div className="row mb-1">
                             <p>Ingredients:</p>
                         </div>
-                        <div className="row">
+                        <div className="row mb-1">
                             <p>Recipe Type:</p>
                         </div>
-                        <div className="row">
+                        <div className="row mb-1">
                             <p>Suitable for:</p>
                         </div>
-                        <textarea rows="3" className="w-75">Free explanation of how to prepare the recipe</textarea>
-
+                        <textarea rows="3" className="w-75 font-weight-light text-muted">Free explanation of how to prepare the recipe</textarea>
                     </div>
                     <div className="col-md-5">
                         <img src={recipe.img}/>

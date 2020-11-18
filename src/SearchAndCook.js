@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
 import cardsData from './cardsData';
 import CookBook from './CookBook';
@@ -12,32 +12,39 @@ function SearchAndCook() {
         const recipe = data.find(item => item.id == id);
         recipe.viewes++;
         recipe.lastupdate = new Date();
-        
+
         setRecipes(data);
     };
-    
-    const sortByDate=()=>{
+
+    const sortByDate = () => {
         const newest = [...cardsData];
-        newest.sort((a,b)=> b.lastupdate-a.lastupdate);
+        newest.sort((a, b) => b.lastupdate - a.lastupdate);
         setRecipes(newest);
     };
-    
-    const sortByViewes=()=>{
+
+    const sortByViewes = () => {
         const populars = cardsData.slice(0);
-        populars.sort((a,b)=> b.viewes-a.viewes);
+        populars.sort((a, b) => b.viewes - a.viewes);
         setRecipes(populars);
     };
 
+    const filterRecipe = (el) => {
+        const newData = [...cardsData]
+        const recipeList=newData.map(item => item.name)
+        const result=recipeList.filter(recipe => recipe.toLowerCase().includes(el.target.value))
+        console.log(` you look for ${result}`);
+    }
+
     return (
         <div className="main-search">
-            <div className="big-header">
+            <div className="big-header mb-4">
                 <h1>Recipes</h1>
             </div>
-            <div className="row littel-header">
+            <div className="row littel-header align-middle mb-2">
                 <div className="col-lg-3 col-6">
-                    <h2>Show My Recipes</h2>
+                    <h4>Show My Recipes</h4>
                 </div>
-                <div className="form-group firstCheckBtn">
+                <div className="form-group mt-2 ">
                     <div className="form-check-inline">
                         <label className="form-check-label">
                             <input type="radio" name="orderProp" className="form-check-input" value="" onChange={sortByViewes} />Most Popular
@@ -54,7 +61,10 @@ function SearchAndCook() {
             <div className="row">
                 <div className="col-lg-6">
                     <div className="md-form active-pink active-pink-2 mb-3 mt-0">
-                        <input type="text" className="form-control" placeholder="Search recipe" aria-label="Search" />
+                        <input type="text" className="form-control" placeholder="Search recipe" name="search" aria-label="Search"
+                            onBlur={filterRecipe}
+                        />
+                        
                     </div>
                 </div>
             </div>

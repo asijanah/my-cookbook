@@ -22,23 +22,22 @@ function Header() {
                             </Link>
                             <Link to='/newrecipe'>
                                 <li className="nav-item active mx-4">
-                                    <p className="nav-link">New Recipe</p>
+                                    <p className="nav-link ">New Recipe</p>
                                 </li>
                             </Link>
                             <Link to='/login'>
-                                <li className="nav-item active ">
+                                <li className="nav-item active mx-4 ">
                                     <a className="nav-link " href="" tabIndex="-1" aria-disabled="true">Log In</a>
                                 </li>
                             </Link>
-                            <li className="nav-item active ">
-                                <a className="nav-link " href="" tabIndex="-1" aria-disabled="true">Log Out</a>
+                            <li className="nav-item active mx-4 ">
+                                <a className="nav-link" href="" tabIndex="-1" aria-disabled="true">Log Out</a>
                             </li>
                         </ul>
                     </div>
                 </div>
             </nav>
         </div>
-
     )
 }
 export default Header

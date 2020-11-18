@@ -1,16 +1,16 @@
 import './App.css';
 import React, { useState, } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
+
 import './Example'
 import Example from './Example';
 import Header from './Header';
-import CookBook from './CookBook';
 import Registration from './Registration';
 import NewRecipe from './NewRecipe';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import cardsData from './cardsData'
-import SearchComponent from './SearchComponent'
 import LoginForm from './LoginForm'
 import RecipePage from './RecipePage'
+import SearchAndCook from './SearchAndCook'
 
 function App() {
 
@@ -20,15 +20,13 @@ function App() {
       <div className="container-fluid">
         {/* <Example /> */}
         <Header />
-        {/* <SearchComponent/> */}
-        <RecipePage />
         <Switch>
-          {/* <div className="row">
-          <Route path="/" exact component={CookBook} />
-          </div>
+        <Route path="/" exact component={SearchAndCook} />
+
           <Route path="/registration" component={Registration} />
-          <Route path="/newrecipe" component={NewRecipe} /> */}
-          {/* <LoginForm path="login" component={LoginForm} /> */}
+          <Route path="/newrecipe" component={NewRecipe} />
+          <LoginForm path="login" component={LoginForm} />
+          <Route path="/recipe/:id" component={RecipePage}/>
         </Switch>
       </div>
     </Router>
