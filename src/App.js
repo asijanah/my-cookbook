@@ -17,7 +17,7 @@ function App() {
   return (
 
     <Router>
-      <div className="container-fluid">
+      <div className="container-fluid bg-light">
         {/* <Example /> */}
         <Header />
         <Switch>
