@@ -6,6 +6,7 @@ import CookBook from './CookBook';
 function SearchAndCook() {
 
     const [recipes, setRecipes] = useState(cardsData);
+    let search = '';
 
     function updateItem(id) {
         let data = [...cardsData];
@@ -28,12 +29,36 @@ function SearchAndCook() {
         setRecipes(populars);
     };
 
-    const filterRecipe = (el) => {
-        const newData = [...cardsData]
-        const recipeList=newData.map(item => item.name)
-        const result=recipeList.filter(recipe => recipe.toLowerCase().includes(el.target.value))
-        console.log(` you look for ${result}`);
-    }
+    // const filterRecipe = (el) => {
+    //     const newData = [...cardsData]
+    //     const recipeList = newData.map(item => item.name)
+    //     const result = recipeList.filter(recipe => recipe.toLowerCase().includes(el.target.value))
+    //     console.log(` you look for ${result}`);
+    // }
+
+    const onSearch = ({ target: { value: text } }) => {
+        if (!text) {
+            setRecipes(cardsData);
+            return;
+        }
+        const lower = text.toLowerCase();
+        const filtered = recipes.filter((recipe) =>
+            recipe.name.toLowerCase().includes(lower)
+        );
+        setRecipes(filtered);
+    };
+
+    const onSearchKeyWord = ({ target: { value: text } }) => {
+        if (!text) {
+            setRecipes(cardsData);
+          return;
+        }
+        const lower = text.toLowerCase();
+        const filtered = recipes.filter((recipe) => 
+          recipe.ingredients.join().toLowerCase().includes(lower)    
+        );    
+        setRecipes(filtered);
+      };
 
     return (
         <div className="main-search">
@@ -62,16 +87,20 @@ function SearchAndCook() {
                 <div className="col-lg-6">
                     <div className="md-form active-pink active-pink-2 mb-3 mt-0">
                         <input type="text" className="form-control" placeholder="Search recipe" name="search" aria-label="Search"
-                            onBlur={filterRecipe}
+                            defaultValue={search}
+                            onKeyUp={onSearch}
                         />
-                        
+
                     </div>
                 </div>
             </div>
             <div className="row">
                 <div className="col-lg-6">
                     <div className="md-form active-pink active-pink-2 mb-3 mt-0">
-                        <input type="text" className="form-control" placeholder="Search by ingredient" aria-label="Search" />
+                        <input type="text" className="form-control" placeholder="Search by ingredient" aria-label="Search"
+                        defaultValue={search}
+                        onKeyUp={onSearchKeyWord}
+                        />
                     </div>
                 </div>
                 <div className="col-lg-6">
